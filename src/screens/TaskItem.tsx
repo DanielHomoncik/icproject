@@ -9,6 +9,7 @@ type Props = {
   onToggle: (id: string) => void;
   onLongPress: () => void;
   isActive: boolean;
+  isOnlyTask: boolean;
 };
 
 export default function TaskItem({
@@ -17,6 +18,7 @@ export default function TaskItem({
   onToggle,
   onLongPress,
   isActive,
+  isOnlyTask,
 }: Props) {
   return (
     <TouchableOpacity
@@ -32,9 +34,11 @@ export default function TaskItem({
       <Text style={[styles.title, task.completed && styles.completed]}>
         {task.title}
       </Text>
-      <TouchableOpacity onPress={() => onRemove(task.id)}>
-        <Text style={styles.remove}>✕</Text>
-      </TouchableOpacity>
+      {!isOnlyTask && (
+        <TouchableOpacity onPress={() => onRemove(task.id)}>
+          <Text style={styles.remove}>✕</Text>
+        </TouchableOpacity>
+      )}
     </TouchableOpacity>
   );
 }

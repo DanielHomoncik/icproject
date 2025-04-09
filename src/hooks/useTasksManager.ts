@@ -67,7 +67,7 @@ const useTasksManager = (initialProject: Project) => {
   const updateTaskOrder = (updatedTasks: Task[]) => {
     tasksRef.current = updatedTasks;
     setTasks([...updatedTasks]);
-  };
+  }; 
 
   const saveTasks = () => saveUpdatedTasks(tasksRef.current);
 

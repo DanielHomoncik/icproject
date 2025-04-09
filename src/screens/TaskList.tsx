@@ -56,6 +56,9 @@ const TaskList = ({ route }: any) => {
       showNotification(Texts.successAddTask, "success");
     }
   };
+  // const lastTask = () => {
+  //   console.log(tasks.length);
+  // };
 
   const renderItem = ({ item, drag, isActive }: RenderItemParams<Task>) => (
     <TaskItem
@@ -64,6 +67,7 @@ const TaskList = ({ route }: any) => {
       onToggle={toggleTask}
       onLongPress={drag}
       isActive={isActive}
+      isOnlyTask={tasks.length === 1}
     />
   );
 
